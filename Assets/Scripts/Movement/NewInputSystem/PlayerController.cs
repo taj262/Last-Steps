@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem; // New input system
 using UnityEngine.InputSystem.XR;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     // multipliers
     [Range(0.01f, 1.0f), Tooltip("How fast to rotate our player to face a direction:\n 1 = instant, 0 = no rotation.")]
@@ -19,16 +19,22 @@ public class PlayerController : MonoBehaviour
     Vector2 move, mouseLook;
     Vector3 rotationTarget;
     bool rightMouseHeld;
+    bool leftMouseHeld;
 
     // components
     CharacterController characterController;
 
-    // constants
+    // private constants
     private float gravityValue = -9.81f;
     private Vector3 playerVelocity;
     float velocity;
 
+    // public constants
     public float GravityMultiplier = 3f;
+    public GameObject Bullet;
+    public Gun PlayerGun;
+
+    public int health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     // get WASD input
     public void OnMove(InputAction.CallbackContext context)
@@ -51,9 +57,16 @@ public class PlayerController : MonoBehaviour
         rightMouseHeld = context.ReadValue<float>() > 0;
     }
 
+    // get input left mouse button
+    public void OnLeftMouseButton(InputAction.CallbackContext context)
+    {
+        leftMouseHeld = context.ReadValue<float>() > 0;
+    }
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        PlayerGun = GetComponentInChildren<Gun>();
     }
 
     // Update is called once per frame
@@ -91,7 +104,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movementDirection = new Vector3(move.x, 0f, move.y);
 
         // move and look in the same direction
-        MovementHelper(movementDirection, movementDirection, movementDirection);
+        MovementHelper(movementDirection, movementDirection, movementDirection, rotationSpeed);
 
     }
 
@@ -110,11 +123,24 @@ public class PlayerController : MonoBehaviour
         Vector3 movementDirection = new Vector3(move.x, 0f, move.y);
         
         // move and look in different directions
-        MovementHelper(movementDirection, lookDirection, lookPos);
+        MovementHelper(movementDirection, lookDirection, lookPos, 1);
 
+        // shoot if left mouse held
+        if (leftMouseHeld)
+        {
+            //Debug.Log("FIRE");
+            //Instantiate(Bullet, transform.position, transform.rotation);
+            //Debug.Log("Player y = " + transform.rotation.y);
+            PlayerGun.FireBullet();
+           
+
+
+
+        }
+        //Debug.DrawLine(transform.position, rotationTarget);
     }
 
-    void MovementHelper(Vector3 movementDirection, Vector3 input, Vector3 lookAt)
+    void MovementHelper(Vector3 movementDirection, Vector3 input, Vector3 lookAt, float rotationSpeed)
     {
 
         // if we have some input
@@ -140,5 +166,10 @@ public class PlayerController : MonoBehaviour
         // move our players position in the direction of movement with respect to time and speed
         characterController.Move(movementDirection * speed * Time.deltaTime);
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
