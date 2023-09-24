@@ -129,15 +129,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (leftMouseHeld)
         {
             //Debug.Log("FIRE");
-            //Instantiate(Bullet, transform.position, transform.rotation);
-            //Debug.Log("Player y = " + transform.rotation.y);
-            PlayerGun.FireBullet();
-           
-
-
-
+            if (PlayerGun != null)
+            {
+                PlayerGun.FireBullet();
+            }
         }
-        //Debug.DrawLine(transform.position, rotationTarget);
     }
 
     void MovementHelper(Vector3 movementDirection, Vector3 input, Vector3 lookAt, float rotationSpeed)
