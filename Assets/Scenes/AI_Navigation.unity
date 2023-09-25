@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 337159744}
   - component: {fileID: 337159743}
   - component: {fileID: 337159742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454926721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b4e6ceeb80b0341833f29d7bdb1e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 1711604334}
+  goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 8
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  walkPointRange: 5
 --- !u!195 &623831062
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -770,13 +778,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 7
-  m_Acceleration: 8
+  m_Speed: 1
+  m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -864,7 +872,7 @@ Transform:
   m_GameObject: {fileID: 623831060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.84, y: 1.25, z: 23.17}
+  m_LocalPosition: {x: -10.84, y: -1.02, z: 23.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -882,7 +890,7 @@ GameObject:
   - component: {fileID: 641124142}
   - component: {fileID: 641124141}
   - component: {fileID: 641124140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +995,7 @@ GameObject:
   - component: {fileID: 652576629}
   - component: {fileID: 652576628}
   - component: {fileID: 652576627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1103,7 @@ GameObject:
   - component: {fileID: 681057382}
   - component: {fileID: 681057381}
   - component: {fileID: 681057387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1397,7 +1405,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 17
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 1
@@ -1689,7 +1697,7 @@ GameObject:
   - component: {fileID: 900392686}
   - component: {fileID: 900392685}
   - component: {fileID: 900392684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1794,7 +1802,7 @@ GameObject:
   - component: {fileID: 978496649}
   - component: {fileID: 978496648}
   - component: {fileID: 978496647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ramp (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2030,7 +2038,7 @@ GameObject:
   - component: {fileID: 1204095060}
   - component: {fileID: 1204095059}
   - component: {fileID: 1204095058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2132,7 +2140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1275196834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2172,7 +2180,7 @@ GameObject:
   - component: {fileID: 1347511249}
   - component: {fileID: 1347511248}
   - component: {fileID: 1347511247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2279,7 +2287,7 @@ GameObject:
   - component: {fileID: 1391167662}
   - component: {fileID: 1391167661}
   - component: {fileID: 1391167660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5047,7 +5055,7 @@ GameObject:
   - component: {fileID: 1401336213}
   - component: {fileID: 1401336214}
   - component: {fileID: 1401336215}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5274,7 +5282,7 @@ GameObject:
   - component: {fileID: 1545496227}
   - component: {fileID: 1545496226}
   - component: {fileID: 1545496225}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5379,7 +5387,7 @@ GameObject:
   - component: {fileID: 1581406833}
   - component: {fileID: 1581406832}
   - component: {fileID: 1581406831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ramp (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5484,7 +5492,7 @@ GameObject:
   - component: {fileID: 1602450869}
   - component: {fileID: 1602450868}
   - component: {fileID: 1602450867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ramp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5690,7 +5698,7 @@ GameObject:
   - component: {fileID: 1711460078}
   - component: {fileID: 1711460077}
   - component: {fileID: 1711460076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampFloor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5900,7 +5908,7 @@ GameObject:
   - component: {fileID: 1946877947}
   - component: {fileID: 1946877946}
   - component: {fileID: 1946877945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ramp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6099,7 +6107,7 @@ GameObject:
   - component: {fileID: 2135477194}
   - component: {fileID: 2135477193}
   - component: {fileID: 2135477192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RampFloor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
