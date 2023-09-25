@@ -346,6 +346,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &93418331
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1178,6 +1186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &623831062
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1839,7 +1855,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: e7c3bc88a4aaa9f4b99832277e4c1c8b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 152a991af567f6c469e155e3aaa89e0e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!43 &783963960
 Mesh:
@@ -2692,6 +2708,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &1334408404
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3038,6 +3062,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &1365105419
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6212,6 +6244,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &1439543509
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6370,6 +6410,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &1526344996
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7640,6 +7688,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 1401336212}
+  maxDist: 10
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  walkPointRange: 5
 --- !u!195 &2085651694
 NavMeshAgent:
   m_ObjectHideFlags: 0
