@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject Bullet;
-    public float FireRate;
+    public float BulletsPerSecond;
     bool canFire = true;
 
     public void FireBullet()
@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
         {
             Instantiate(Bullet, transform.position, transform.rotation);
             canFire = false;
-            Invoke("EndFireCooldown", FireRate);
+            Invoke("EndFireCooldown", 1 / BulletsPerSecond);
         }
     }
 
