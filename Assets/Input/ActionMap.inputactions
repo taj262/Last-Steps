@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseLook",
+                    "name": "MousePosition",
                     "type": "Value",
                     "id": "d6e7d593-d926-41bd-bccc-27070d9ddbfe",
                     "expectedControlType": "Vector2",
@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseClick",
+                    "name": "MouseHoldAim",
                     "type": "Button",
                     "id": "7d0bbe84-930e-455c-9bee-a7cca82d8394",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseShoot",
+                    "type": "Button",
+                    "id": "34ed1593-cd30-4a0e-88ce-d958df37cca6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -96,7 +105,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseLook",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -107,7 +116,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseClick",
+                    "action": "MouseHoldAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a0539a8-84fb-4e04-8619-2a2430f053a6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
