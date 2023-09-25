@@ -31,8 +31,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     // public constants
     public float GravityMultiplier = 3f;
-    public GameObject Bullet;
-    public Gun PlayerGun;
+    Gun PlayerGun;
 
     public int health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -128,7 +127,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         // shoot if left mouse held
         if (leftMouseHeld)
         {
-            //Debug.Log("FIRE");
             if (PlayerGun != null)
             {
                 PlayerGun.FireBullet();
