@@ -7,7 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
-    int speed = 1000;
+    public int BulletVelocity = 1000;
+    public MeshRenderer BulletMesh;
     Rigidbody rb;
     TrailRenderer trailRenderer;
 
@@ -23,14 +24,16 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         // every frame go forward
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        //rb.transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        rb.AddForce(rb.transform.forward * speed);
+        if (!rb.isKinematic)
+        {
+            rb.velocity = (rb.transform.forward * BulletVelocity);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit somthing");
+        //Debug.Log("Hit somthing");
+        BulletMesh.enabled = false;
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
