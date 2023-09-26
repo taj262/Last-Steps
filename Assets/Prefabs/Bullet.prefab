@@ -163,6 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletVelocity: 300
   BulletMesh: {fileID: 1925232721192963309}
+  hitEffectPrefab: {fileID: 8283127751673644978, guid: 3509f4caf2a2dcc41b63dc47bb096af9, type: 3}
+  muzzleFlashPrefab: {fileID: 8028544243643281596, guid: c191a05dbd4e99c44a39c18abad80043, type: 3}
 --- !u!65 &7188106836887271450
 BoxCollider:
   m_ObjectHideFlags: 0
