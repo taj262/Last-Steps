@@ -16,6 +16,6 @@ public class HealthBarManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = hp.currentHealthPercent();
+        healthBar.fillAmount = hp.CurrentHealthPercent();
     }
 }
