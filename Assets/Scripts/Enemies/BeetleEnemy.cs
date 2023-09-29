@@ -12,7 +12,7 @@ public class BeetleEnemy : MonoBehaviour, IReactToDamage
         mat = GetComponent<MeshRenderer>().materials[0];
     }
     public void isHit() {
-        Color color = Color.Lerp(Color.white, Color.red, 1 - currentHealth.currentHealthPercent());
+        Color color = Color.Lerp(Color.white, Color.red, 1 - currentHealth.CurrentHealthPercent());
         mat.color = color;
     }
     public void isDead() {

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can take dammage
 {
-    public int health;
+    private int health;
     public int MaxHealth;
     IReactToDamage entity ;
 
     private void Awake()
     {
+        health = MaxHealth;
         entity = GetComponent<IReactToDamage>();
     }
 
-    public void setHeatlh(int damage)
+    public void SetHealth(int damage)
     {
         health-=damage;
     }
@@ -23,16 +24,12 @@ public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can 
         return health <= 0;
     }
 
-    public float currentHealthPercent() {
+    public float CurrentHealthPercent() {
         return (float)health / (float)MaxHealth;
-    }
-    public void initHealth(int healthPoints) {
-        health = healthPoints;
-        MaxHealth = healthPoints;
     }
     public void TakeDamage(int damage) {
         Debug.Log(health);
-        setHeatlh(damage);
+        SetHealth(damage);
         entity.isHit();
         if(checkIfDead())
         {
