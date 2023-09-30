@@ -969,9 +969,9 @@ GameObject:
   - component: {fileID: 623831063}
   - component: {fileID: 623831062}
   - component: {fileID: 623831068}
-  - component: {fileID: 623831069}
   - component: {fileID: 623831071}
   - component: {fileID: 623831073}
+  - component: {fileID: 623831074}
   m_Layer: 0
   m_Name: Wisp
   m_TagString: Untagged
@@ -993,7 +993,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1117,27 +1117,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &623831069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623831060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 525159c16a2815647808954db6ff9d0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 1046264865}
-  maxDist: 10
-  player:
-    serializedVersion: 2
-    m_Bits: 8
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
-  walkPointRange: 5
 --- !u!114 &623831071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1142,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e36aba2d2693b44f8cb43e43ad9bc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &623831074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623831060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31eb6399e8205848a3a9aa38d631fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1046264865}
+  maxDist: 40
+  player:
+    serializedVersion: 2
+    m_Bits: 8
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  walkPointRange: 5
 --- !u!1 &641124138
 GameObject:
   m_ObjectHideFlags: 0
