@@ -36,6 +36,7 @@ public class AI_Beetle_Enemy : MonoBehaviour
         setPoint = Player.position;
         bool patrol = !inRange && walkPointSet;
         agent.destination = setPoint * System.Convert.ToInt32(inRange) + walkPoint * System.Convert.ToInt32(patrol) ;
+        transform.LookAt(agent.destination);
         
     }
     private void Patroling()
@@ -45,7 +46,7 @@ public class AI_Beetle_Enemy : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint reached
-        isAwayFromTarget = distanceToWalkPoint.magnitude > 1f;
+        isAwayFromTarget = distanceToWalkPoint.magnitude - agent.stoppingDistance > 1f ;
         walkPointSet = isAwayFromTarget && isGrounded;
     }
     private Vector3 SearchWalkPoint()
@@ -53,8 +54,10 @@ public class AI_Beetle_Enemy : MonoBehaviour
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+        float newXpos = transform.position.x -  randomX + Player.position.x;
+        float newZpos =  transform.position.z - randomZ+ Player.position.z;
 
-        tempPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        tempPoint = new Vector3(newXpos, transform.position.y,newZpos);
         isGrounded = Physics.Raycast(walkPoint, -transform.up, 2f, ground);
         return tempPoint;
     }
