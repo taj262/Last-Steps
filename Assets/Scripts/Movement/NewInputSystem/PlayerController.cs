@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         xInput = (float)Math.Round(xInput, 2);
         yInput = (float)Math.Round(yInput, 2);
 
-        Debug.Log("x = " + xInput + ", y = " + yInput);
+        //Debug.Log("x = " + xInput + ", y = " + yInput);
 
         // Update the Animator parameters
         MovementAnimator.SetFloat("x", xInput);
