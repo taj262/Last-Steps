@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem; // New input system
-using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
@@ -23,10 +21,10 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     // components
     CharacterController characterController;
+    public Animator MovementAnimator;
 
     // private constants
     private float gravityValue = -9.81f;
-    private Vector3 playerVelocity;
     float velocity;
 
     // public constants
@@ -94,13 +92,42 @@ public class PlayerController : MonoBehaviour, IDamageable
             MovePlayer();
         }
 
+        // Determine movement direction based on input
+        Vector3 movementDirection = new Vector3(move.x, 0f, move.y);
+        //Debug.Log(movementDirection);
+
+        // Update animator parameters
+        UpdateAnimatorParameters(movementDirection);
 
     }
-    
+
+    void UpdateAnimatorParameters(Vector3 movementDirection)
+    {
+
+        // Calculate normalized direction vectors
+        Vector3 forwardDirection = transform.forward;
+        Vector3 rightDirection = transform.right;
+
+        // Calculate values for the Animator parameters (x and y)
+        float xInput = Mathf.Round(Vector3.Dot(movementDirection.normalized, rightDirection));
+        float yInput = Mathf.Round(Vector3.Dot(movementDirection.normalized, forwardDirection));
+
+        xInput = (float)Math.Round(xInput, 2);
+        yInput = (float)Math.Round(yInput, 2);
+
+        //Debug.Log("x = " + xInput + ", y = " + yInput);
+
+        // Update the Animator parameters
+        MovementAnimator.SetFloat("x", xInput);
+        MovementAnimator.SetFloat("y", yInput);
+    }
+
     public void MovePlayer()
     {
         // get x and y from our input system
         Vector3 movementDirection = new Vector3(move.x, 0f, move.y);
+
+
 
         // move and look in the same direction
         MovementHelper(movementDirection, movementDirection, movementDirection, rotationSpeed);

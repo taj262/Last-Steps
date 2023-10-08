@@ -14,7 +14,9 @@ public class Gun : MonoBehaviour
     {
         if (canFire)
         {
-            Instantiate(Bullet, transform.position, transform.rotation);
+            Quaternion bulletRotation = transform.rotation;
+            bulletRotation.eulerAngles = new Vector3(0, bulletRotation.eulerAngles.y, 0); // Set Y rotation to parallel to xz plane
+            Instantiate(Bullet, transform.position, bulletRotation);
             GameObject flash = Instantiate(MuzzleFlashPrefab, MuzzleTransform.position, MuzzleTransform.rotation);
             flash.transform.parent = transform;
             Destroy(flash, 0.25f);
