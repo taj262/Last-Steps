@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     // components
     CharacterController characterController;
     public Animator MovementAnimator;
+ 
 
     // private constants
     private float gravityValue = -9.81f;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         leftMouseHeld = context.ReadValue<float>() > 0;
     }
+
 
     void Start()
     {
