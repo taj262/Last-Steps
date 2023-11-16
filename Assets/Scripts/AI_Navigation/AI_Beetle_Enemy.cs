@@ -35,13 +35,14 @@ public class AI_Beetle_Enemy : MonoBehaviour
  
         setPoint = Player.position;
         bool patrol = !inRange && walkPointSet;
-        agent.destination = setPoint * System.Convert.ToInt32(inRange) + walkPoint * System.Convert.ToInt32(patrol) ;
+        if(inRange) agent.destination = setPoint;
+        if(patrol) agent.destination = walkPoint;
         transform.LookAt(agent.destination);
         
     }
     private void Patroling()
     {
-        walkPoint = SearchWalkPoint() * System.Convert.ToInt32(!walkPointSet) + walkPoint * System.Convert.ToInt32(walkPointSet);
+        if(!walkPointSet) walkPoint = SearchWalkPoint();
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
