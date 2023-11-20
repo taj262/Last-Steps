@@ -52,11 +52,12 @@ public class AI_Beetle_Enemy : MonoBehaviour
     }
     private Vector3 SearchWalkPoint()
     {
+        Vector3 playerPos = Player.position.normalized;
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
-        float newXpos = transform.position.x -  randomX + Player.position.x;
-        float newZpos =  transform.position.z - randomZ+ Player.position.z;
+        float newXpos = transform.position.x -  randomX + playerPos.x;
+        float newZpos =  transform.position.z - randomZ+ playerPos.z;
 
         tempPoint = new Vector3(newXpos, transform.position.y,newZpos);
         isGrounded = Physics.Raycast(walkPoint, -transform.up, 2f, ground);
