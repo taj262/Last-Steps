@@ -31,8 +31,4 @@ public class GunScripableObject : ScriptableObject
 
     public GameObject Bullet;
 
-    //public Transform Grip;
-
-    
-
 }

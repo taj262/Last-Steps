@@ -7,11 +7,14 @@ public class WeaponEquiped : MonoBehaviour
     public GunScripableObject weapon;
 
     GameObject weaponModel;
+    Transform grip;
     
     
     void Start()
     {
-        weaponModel = Instantiate(weapon.GunModel, this.gameObject.transform);
+        // get the position of the grip
+        
+        weaponModel = Instantiate(weapon.GunModel, transform);
     }
 
     public Transform MuzzleTransform;
