@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3998566791247009875}
   - component: {fileID: 7188106836887271450}
   - component: {fileID: -4705287525168887609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,10 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1138770b64cb8468d7c13dcce660ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletVelocity: 300
+  BulletVelocity: 100
   BulletMesh: {fileID: 1925232721192963309}
   hitEffectPrefab: {fileID: 8283127751673644978, guid: 3509f4caf2a2dcc41b63dc47bb096af9, type: 3}
-  muzzleFlashPrefab: {fileID: 8028544243643281596, guid: c191a05dbd4e99c44a39c18abad80043, type: 3}
 --- !u!65 &7188106836887271450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -180,12 +179,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 8
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.1, y: 0.1, z: 1.7368569}
+  m_Center: {x: 0, y: 0, z: -0.45274222}
 --- !u!54 &-4705287525168887609
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -224,7 +223,7 @@ GameObject:
   - component: {fileID: 1195798822186921202}
   - component: {fileID: 8604150035176240259}
   - component: {fileID: 1925232721192963309}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
-    public int BulletVelocity = 1000;
+    public int BulletVelocity = 300;
     public MeshRenderer BulletMesh;
     public GameObject hitEffectPrefab;
     Rigidbody rb;
@@ -25,41 +25,48 @@ public class Bullet : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Hit somthing");
-        BulletMesh.enabled = false;
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-        if (damageable != null)
+        // Check if collides with another bullet, if not, proceed
+        if (other.GetComponent<Bullet>() == null)
         {
-            damageable.TakeDamage(1);
-        }
-        rb.isKinematic = true;
-
-        // Create the hit effect at the collision point
-        if (hitEffectPrefab != null)
-        {
-            ContactPoint contact = collision.contacts[0]; // Get the first contact point
-            Quaternion rotation = Quaternion.LookRotation(contact.normal); // Orient the particle system based on the normal
-            Vector3 spawnPosition = contact.point + contact.normal * 0.01f;
-            GameObject hitEffect = Instantiate(hitEffectPrefab, spawnPosition, rotation);
-
-            // You may want to destroy the hitEffect after its particle system finishes playing
-            ParticleSystem particleSystem = hitEffect.GetComponent<ParticleSystem>();
-            if (particleSystem != null)
+            Debug.Log("Hit: " + other.gameObject.name);
+            BulletMesh.enabled = false;
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                Destroy(hitEffect, particleSystem.main.duration);
+                damageable.TakeDamage(1);
             }
-            else
+            rb.isKinematic = true;
+
+            // Create the hit effect at a position near the collider's bounds
+            Vector3 spawnPosition = other.ClosestPointOnBounds(transform.position);
+
+            // Orient the hit effect based on the collision normal (assuming it's a projectile hitting a surface)
+            Quaternion rotation = Quaternion.LookRotation(transform.position - spawnPosition);
+
+            // Instantiate the hit effect
+            if (hitEffectPrefab != null)
             {
-                // If the hitEffect doesn't have a particle system, destroy it after a certain time
-                Destroy(hitEffect, 2f); // Adjust the time as needed
+                GameObject hitEffect = Instantiate(hitEffectPrefab, spawnPosition, rotation);
+
+                // Destroy the hit effect after its particle system finishes playing
+                ParticleSystem particleSystem = hitEffect.GetComponent<ParticleSystem>();
+                if (particleSystem != null)
+                {
+                    Destroy(hitEffect, particleSystem.main.duration);
+                }
+                else
+                {
+                    // If the hitEffect doesn't have a particle system, destroy it after a certain time
+                    Destroy(hitEffect, 2f); // Adjust the time as needed
+                }
             }
+
+            Destroy(gameObject, trailRenderer.time);
         }
-
-        Destroy(gameObject, trailRenderer.time);
-
-
     }
+
+
 
 }

@@ -30,9 +30,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     // public constants
     public float GravityMultiplier = 3f;
-    Gun PlayerGun;
+    WeaponEquiped PlayerGun;
 
     public int health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+        PlayerGun = GetComponentInChildren<WeaponEquiped>();
+    }
 
     // get WASD input
     public void OnMove(InputAction.CallbackContext context)
@@ -59,14 +65,16 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void OnLeftMouseButton(InputAction.CallbackContext context)
     {
         leftMouseHeld = context.ReadValue<float>() > 0;
+        if (context.canceled)
+        {
+            Debug.Log("click canceled");
+            if (PlayerGun != null)
+            {
+                PlayerGun.EndFireCooldown();
+            }
+        }
     }
 
-
-    void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-        PlayerGun = GetComponentInChildren<Gun>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -158,9 +166,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if (PlayerGun != null)
             {
+                Debug.Log("clicked");
                 PlayerGun.FireBullet();
             }
         }
+        
     }
 
     void MovementHelper(Vector3 movementDirection, Vector3 input, Vector3 lookAt, float rotationSpeed)
