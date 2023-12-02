@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8489663bd0546a94fa32555ca3808001, type: 3}
+  m_Name: AutoRifle
+  m_EditorClassIdentifier: 
+  GunName: Basic Auto Rifle
+  Description: Just a basic Automatic Rifle
+  gunType: 2
+  fireType: 2
+  FireRate: 7
+  GunModel: {fileID: 4893822151811445862, guid: 28409ac1fd7a04942812ab996316f53d, type: 3}
+  MuzzleFlashPrefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  Bullet: {fileID: 1270194103951371847, guid: 30808168a4a5a8045899db37db671f61, type: 3}

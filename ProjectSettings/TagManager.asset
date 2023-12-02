@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FloatingText
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Ground
   - Gun
   - Enemy
-  - 
-  - 
+  - Bullet
+  - Grip
   - 
   - 
   - 
