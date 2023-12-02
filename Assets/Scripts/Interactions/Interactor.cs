@@ -21,12 +21,12 @@ public class Interactor : MonoBehaviour
         if (_numFound > 0 )
         {
             // get the interactable compontent of the game object found, ie. Teleporter, Chest
-            var interactable = _colliders[0].GetComponent<IInteractable>();
+            IInteractable interactable = GetComponent<IInteractable>();
             
-
             // if within range of an interactable
             if ( interactable != null) 
             {
+                
                 // check if "e" key was pressed
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {

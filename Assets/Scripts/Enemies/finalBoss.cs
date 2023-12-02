@@ -12,15 +12,12 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
     Transform eye;
     Transform otherEye;
     Transform mainEye;
-    public GameObject bombPrefab ; 
-    NavMeshAgent agent;
     public LayerMask player;
     public float raycastDist = 40f;
     public float waitSeconds = 2.5f;
     public GameObject bullet;
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         eye = transform.Find("eye");
         otherEye = transform.Find("otherEye");
         mainEye = transform.Find("mainEye");
@@ -31,14 +28,20 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
 
         }
         currentHealth = GetComponent<HealthComp>();
-        Invoke("finalBossAttack",waitSeconds);
+        Invoke("attackPlayer",waitSeconds);
     }
 
-    void finalBossAttack()
+    void attackPlayer()
     {
         if(didPlayerGetAttacked())
         {
-            Debug.Log("fired project");
+            finalBossAttack();
+        }   
+        Invoke("attackPlayer",waitSeconds);
+    }
+    void finalBossAttack()
+    {
+
             Instantiate(bullet,eye.position , eye.rotation);
             //this is for final boss
             if(otherEye != null && mainEye != null )
@@ -47,15 +50,7 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
                 Instantiate(bullet,mainEye.position , mainEye.rotation);
 
             }
-            if(bombPrefab != null )
-            {
-                Instantiate(bombPrefab,transform.position , transform.rotation);
-            } 
             
-
-        }
-        Invoke("finalBossAttack",waitSeconds);
-
     }
     bool didPlayerGetAttacked()
     {
@@ -67,6 +62,8 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
         mat.color = color;
     }
     public void isDead() {
+        LevelState.BossEvent = false;
+        LevelState.Spawning =false;
         Destroy(gameObject);
     }
 }

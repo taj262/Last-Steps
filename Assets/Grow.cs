@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Grow : MonoBehaviour
 {
-    public GameObject LevelState;
 
     // private bool grow = false;
 
@@ -20,9 +19,7 @@ public class Grow : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(percentComplete);
-
-            if (LevelState.GetComponent<LevelState>().BossEvent)
+            if (LevelState.BossEvent)
             {
                 // set up the lerp parameters
                 upTime += Time.deltaTime;
@@ -30,7 +27,7 @@ public class Grow : MonoBehaviour
                 // apply the lerp over totalTime
                 transform.localPosition = Vector3.Lerp(startingScale, endingScale, percentComplete);
             }
-            else if (!LevelState.GetComponent<LevelState>().BossEvent && percentComplete != 0f)
+            else if (!LevelState.BossEvent && percentComplete != 0f)
             {
                 downTime += Time.deltaTime;
                 // revese the force field.

@@ -9,6 +9,7 @@ public class WispEnemy : MonoBehaviour, IReactToDamage
     HealthComp currentHealth;
     Transform childObject;
     Transform eye;
+    public bool isBoss = false;
     NavMeshAgent agent;
     public LayerMask player;
     public float raycastDist = 20f;
@@ -49,7 +50,16 @@ public class WispEnemy : MonoBehaviour, IReactToDamage
         Color color = Color.Lerp(Color.white, Color.red, 1 - currentHealth.CurrentHealthPercent());
         mat.color = color;
     }
-    public void isDead() {
+   public void isDead() {
+        if(isBoss)
+        {
+            LevelState.BossEvent = false;
+            LevelState.Spawning =false;
+        }
+        else
+        {
+            SpawnerController.NUM_OF_ENEMIES--;
+        }
         Destroy(gameObject);
     }
 }
