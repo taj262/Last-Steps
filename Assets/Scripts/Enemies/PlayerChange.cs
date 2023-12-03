@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerChange : MonoBehaviour, IReactToDamage
 {
-    static public int health = 100;
+    static public int health = 200;
     HealthComp mainHealth;
     void Awake()
     {

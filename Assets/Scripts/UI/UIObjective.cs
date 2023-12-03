@@ -6,6 +6,8 @@ using UnityEngine;
 public class UIObjective : MonoBehaviour
 {
     TMP_Text text;
+    bool nextLevel = false;
+    int seconds = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,18 +17,39 @@ public class UIObjective : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(!LevelState.BossEvent && !LevelState.Spawning)
+        {
+            if(!nextLevel)
+            {
+                nextLevel = true;
+                Invoke("countDown",1f);
+            }
+            return;
+        }
         if(!LevelState.BossEvent && LevelState.Spawning)
         {
-            text.SetText("Objective: Find Teleporter");
+            text.SetText("Find Teleporter");
         }
-        else if (LevelState.BossEvent)
+         if (LevelState.BossEvent)
         {
-            text.SetText("Objective: Defeat Boss");
+            text.SetText("Defeat Boss");
 
         }
-        else
+
+
+
+    }
+    void countDown()
+    {
+        if(seconds == 0 )
         {
-            text.SetText("Objective: Survive");
+            Menu.loadNextScene();
+
         }
+        text.SetText("Survive for "+seconds);
+        seconds--;
+
+        Invoke("countDown",1f);
+
     }
 }

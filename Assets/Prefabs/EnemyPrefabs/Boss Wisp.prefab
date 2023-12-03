@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 703403232694974209}
   - component: {fileID: 5495632851323470656}
   - component: {fileID: 266092392718277213}
+  - component: {fileID: 1006962290048581603}
   m_Layer: 8
   m_Name: Boss Wisp
   m_TagString: Untagged
@@ -291,6 +292,27 @@ MonoBehaviour:
   raycastDist: 60
   waitSeconds: 4
   bullet: {fileID: 1270194103951371847, guid: dd30cf4282ead5a4cba0c8fd5af4c021, type: 3}
+--- !u!65 &1006962290048581603
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442397861376242677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 2.5, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &7691776941437964336
 GameObject:
   m_ObjectHideFlags: 0

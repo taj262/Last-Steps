@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d740d5084ba7bc449333fc50ac66eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletVelocity: 100
+  BulletVelocity: 50
   BulletMesh: {fileID: 1925232721192963309}
 --- !u!114 &6224063462856287838
 MonoBehaviour:

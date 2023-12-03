@@ -17,7 +17,8 @@ public class Game : MonoBehaviour
     }
     void raiseDiffculty()
     {
-        SpawnerController.CAPACITY += 20f;
+        Debug.Log("CAPACITY: "+ SpawnerController.CAPACITY + "Num of Enmies: "+ SpawnerController.NUM_OF_ENEMIES);
+        SpawnerController.CAPACITY +=20f % 100f;
         Invoke("raiseDiffculty",60f);
     }
 }

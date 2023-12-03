@@ -34,7 +34,7 @@ public class Menu : MonoBehaviour
     }
     void resetGame()
     {
-        PlayerChange.health = 100;
+        PlayerChange.health = 200;
         SpawnerController.CAPACITY = 20f;
         sceneBuildIndex = 1;
         LevelState.BossEvent = false;

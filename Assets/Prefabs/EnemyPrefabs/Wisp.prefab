@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 4189047200232900789}
   - component: {fileID: 3047321581742483975}
   - component: {fileID: 7299776567944464288}
+  - component: {fileID: 6526897763566167789}
   m_Layer: 8
   m_Name: Wisp
   m_TagString: Untagged
@@ -300,6 +301,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPointRange: 10
+--- !u!65 &6526897763566167789
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4492399283954531272}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 1}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6242284408787966170
 GameObject:
   m_ObjectHideFlags: 0

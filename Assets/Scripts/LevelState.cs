@@ -11,8 +11,11 @@ public class LevelState : MonoBehaviour
     public static float LevelSpawnRate = 1f;
     public float SpawnIncreaseRate = 0.005f;
 
-
-
+    void Awake()
+    {
+        BossEvent = false;
+        Spawning = true;
+    }
     void Start()
     {
         if (BossEvent)
@@ -50,16 +53,6 @@ public class LevelState : MonoBehaviour
         
         LevelSpawnRate += (SpawnIncreaseRate * Time.deltaTime);
         
-        if(!BossEvent && !Spawning)
-        {
-            Invoke("NextLevel",3f);
+    }
 
-        }
-    }
-    void NextLevel()
-    {
-        BossEvent = false;
-        Spawning = true;
-        Menu.loadNextScene();
-    }
 }

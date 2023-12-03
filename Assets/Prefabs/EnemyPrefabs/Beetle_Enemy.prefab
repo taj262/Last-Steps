@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 493517848157425059}
   - component: {fileID: 1541725731470363646}
   - component: {fileID: 3014354182394147748}
+  - component: {fileID: 3083285826277290212}
   m_Layer: 8
   m_Name: Beetle_Enemy
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 9101425680417733579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.8, y: 1.45, z: -16.3}
+  m_LocalPosition: {x: 25.2, y: 1.45, z: -11.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -195,3 +196,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   MaxHealth: 5
+--- !u!65 &3083285826277290212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101425680417733579}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

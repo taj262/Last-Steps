@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 4349982119920301363}
   - component: {fileID: 6354488996263268394}
   - component: {fileID: 6492111259427267926}
+  - component: {fileID: 3812912946093037405}
   m_Layer: 8
   m_Name: Final Boss
   m_TagString: Untagged
@@ -376,6 +377,27 @@ MonoBehaviour:
   raycastDist: 40
   waitSeconds: 4
   bullet: {fileID: 1270194103951371847, guid: dd30cf4282ead5a4cba0c8fd5af4c021, type: 3}
+--- !u!65 &3812912946093037405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056581736942837208}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 2, z: 6.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4703461232383588064
 GameObject:
   m_ObjectHideFlags: 0

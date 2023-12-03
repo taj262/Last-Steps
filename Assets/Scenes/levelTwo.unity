@@ -541,6 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267371257}
   - component: {fileID: 267371256}
+  - component: {fileID: 267371258}
   m_Layer: 0
   m_Name: LevelState
   m_TagString: Untagged
@@ -578,6 +579,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &267371258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267371255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fe7f8aa7908e741bf2516d4f089093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &295544169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionPoint: {fileID: 1469204721}
-  _interactionPointRadius: 1
+  _interactionPointRadius: 20
   _interactableMask:
     serializedVersion: 2
     m_Bits: 8

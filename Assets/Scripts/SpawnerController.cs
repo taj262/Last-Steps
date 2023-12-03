@@ -12,8 +12,6 @@ public class SpawnerController : MonoBehaviour
     void Awake()
     {
         NUM_OF_ENEMIES = 0;
-        Debug.Log(CAPACITY);
-        CAPACITY = capactiy;
     }
 
     // Update is called once per frame
