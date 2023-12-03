@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4705287525168887609}
   - component: {fileID: -7567479149036493649}
   - component: {fileID: 6224063462856287838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 1195798822186921202}
   - component: {fileID: 8604150035176240259}
   - component: {fileID: 1925232721192963309}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

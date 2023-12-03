@@ -39,5 +39,12 @@ public class AttackBullet : MonoBehaviour
         Destroy(gameObject, trailRenderer.time);
         
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+        BulletMesh.enabled = false;
+        rb.isKinematic = true;
+        Destroy(gameObject, trailRenderer.time);
+
+    }
 
 }

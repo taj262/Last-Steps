@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,9 +28,10 @@ public class AI_Beetle_Enemy : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(LevelState.BossEvent) 
+        float distance = Vector3.Distance(transform.position,Player.position);
+        if(LevelState.BossEvent || distance > maxDist *3) 
         {
             agent.destination = Player.position;
             return;

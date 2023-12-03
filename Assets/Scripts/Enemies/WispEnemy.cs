@@ -13,7 +13,7 @@ public class WispEnemy : MonoBehaviour, IReactToDamage
     NavMeshAgent agent;
     public LayerMask player;
     public float raycastDist = 20f;
-    public float waitSeconds = 4f;
+    public float waitSeconds = 7f;
     public GameObject bullet;
     private void Start()
     {
@@ -31,26 +31,19 @@ public class WispEnemy : MonoBehaviour, IReactToDamage
 
     void wispAttack()
     {
-        if(agent.remainingDistance - agent.stoppingDistance < 0 && didPlayerGetAttacked())
-        {
-            Debug.Log("fired project");
+
             Instantiate(bullet,eye.position , eye.rotation);
             
 
-        }
+    
         Invoke("wispAttack",waitSeconds);
 
-    }
-    bool didPlayerGetAttacked()
-    {
-
-        return Physics.Raycast(transform.position,transform.forward,raycastDist,player);
     }
     public void isHit() {
         Color color = Color.Lerp(Color.white, Color.red, 1 - currentHealth.CurrentHealthPercent());
         mat.color = color;
     }
-   public void isDead() {
+    public void isDead() {
         if(isBoss)
         {
             LevelState.BossEvent = false;

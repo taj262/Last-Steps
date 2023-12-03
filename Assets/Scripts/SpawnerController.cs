@@ -6,17 +6,20 @@ public class SpawnerController : MonoBehaviour
 {
     public List<Spawner> spawners;
     static public float NUM_OF_ENEMIES = 0;
-    static public float CAPACITY = 5f;
+    public float capactiy = 20f;
+    static public float CAPACITY = 20f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        NUM_OF_ENEMIES = 0;
+        Debug.Log(CAPACITY);
+        CAPACITY = capactiy;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(CAPACITY != NUM_OF_ENEMIES && LevelState.Spawning)
+        if(CAPACITY > NUM_OF_ENEMIES && LevelState.Spawning)
         {
             Spawner tSpawner;
             int chanceSpawn = Random.Range(0,spawners.Count);

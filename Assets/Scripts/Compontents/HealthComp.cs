@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can take dammage
 {
-    private int health;
+    public int health;
     public int MaxHealth;
     IReactToDamage entity ;
 
@@ -28,7 +28,6 @@ public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can 
         return (float)health / (float)MaxHealth;
     }
     public void TakeDamage(int damage) {
-        Debug.Log(health);
         SetHealth(damage);
         entity.isHit();
         if(checkIfDead())

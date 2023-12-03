@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class FinalBoss : MonoBehaviour, IReactToDamage
 {   
@@ -33,10 +31,8 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
 
     void attackPlayer()
     {
-        if(didPlayerGetAttacked())
-        {
-            finalBossAttack();
-        }   
+
+        finalBossAttack(); 
         Invoke("attackPlayer",waitSeconds);
     }
     void finalBossAttack()
@@ -52,11 +48,7 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
             }
             
     }
-    bool didPlayerGetAttacked()
-    {
 
-        return Physics.Raycast(transform.position,transform.forward,raycastDist,player);
-    }
     public void isHit() {
         Color color = Color.Lerp(Color.white, Color.red, 1 - currentHealth.CurrentHealthPercent());
         mat.color = color;
@@ -66,4 +58,5 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
         LevelState.Spawning =false;
         Destroy(gameObject);
     }
+
 }
