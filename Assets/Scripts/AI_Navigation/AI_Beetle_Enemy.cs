@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,9 +28,14 @@ public class AI_Beetle_Enemy : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        
+        float distance = Vector3.Distance(transform.position,Player.position);
+        if(LevelState.BossEvent || distance > maxDist *3) 
+        {
+            agent.destination = Player.position;
+            return;
+        }
         inRange = Physics.CheckSphere(agent.transform.position,maxDist,player);
         Patroling();
  
@@ -37,6 +43,7 @@ public class AI_Beetle_Enemy : MonoBehaviour
         bool patrol = !inRange && walkPointSet;
         if(inRange) agent.destination = setPoint;
         if(patrol) agent.destination = walkPoint;
+        
         transform.LookAt(agent.destination);
         
     }
@@ -52,15 +59,18 @@ public class AI_Beetle_Enemy : MonoBehaviour
     }
     private Vector3 SearchWalkPoint()
     {
-        Vector3 playerPos = Player.position.normalized;
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
-        float newXpos = transform.position.x -  randomX + playerPos.x;
-        float newZpos =  transform.position.z - randomZ+ playerPos.z;
+        float newXpos = transform.position.x -  randomX ;
+        float newZpos =  transform.position.z - randomZ;
 
         tempPoint = new Vector3(newXpos, transform.position.y,newZpos);
-        isGrounded = Physics.Raycast(walkPoint, -transform.up, 2f, ground);
+        isGrounded = Physics.Raycast(tempPoint, -transform.up, 2f, ground);
+        if(!isGrounded) 
+        {   
+            tempPoint = Player.position;
+        }
         return tempPoint;
     }
 

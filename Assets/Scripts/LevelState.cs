@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LevelState : MonoBehaviour
 {
-    public bool BossEvent = false;
+    public static bool BossEvent = false;
     public float BossTime = 0f;
-    public float BossTimeEnd = 10f;
-    public bool Spawning = true;
-    public float LevelSpawnRate = 1f;
+    public float BossTimeEnd = 90f;
+    public  static bool Spawning = true;
+    public static float LevelSpawnRate = 1f;
     public float SpawnIncreaseRate = 0.005f;
 
-
-
+    void Awake()
+    {
+        BossEvent = false;
+        Spawning = true;
+    }
     void Start()
     {
         if (BossEvent)
@@ -22,17 +25,10 @@ public class LevelState : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
-        // Boss Event is over
-        if (BossTime >= BossTimeEnd)
-        {
-            // end the boss event
-            BossEvent = false;
-            // Turn spawning off
-            Spawning = false;
-        }
+
 
 
         // Boss Event is happening
@@ -54,13 +50,9 @@ public class LevelState : MonoBehaviour
 
         // as the level begins there are few zombies but as time continues, difficulty increases
         
-        Debug.Log(Time.deltaTime);
         
         LevelSpawnRate += (SpawnIncreaseRate * Time.deltaTime);
         
-        
-
-
-
     }
+
 }

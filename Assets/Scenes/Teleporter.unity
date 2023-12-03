@@ -2576,6 +2576,7 @@ GameObject:
   - component: {fileID: 1046264866}
   - component: {fileID: 1046264868}
   - component: {fileID: 1046264869}
+  - component: {fileID: 1046264870}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2698,22 +2699,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 34ed1593-cd30-4a0e-88ce-d958df37cca6
     m_ActionName: Player/MouseShoot[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 697226d84494ef346a98b6b5925c59d6, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2d15396a-ef25-451c-855b-cab8865cde2f
-    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2733,7 +2718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.072
   speed: 7
-  MovementAnimator: {fileID: 0}
+  MovementAnimator: {fileID: 1046264870}
   GravityMultiplier: 3
 --- !u!136 &1046264862
 CapsuleCollider:
@@ -2867,8 +2852,29 @@ MonoBehaviour:
   _interactionPointRadius: 0.2
   _interactableMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _numFound: 0
+--- !u!95 &1046264870
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046264857}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb79e3fd0dd669f40a90a984b92a0ccf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1064118047
 GameObject:
   m_ObjectHideFlags: 0

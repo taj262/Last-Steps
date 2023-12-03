@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4705287525168887609}
   - component: {fileID: -7567479149036493649}
   - component: {fileID: 6224063462856287838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d740d5084ba7bc449333fc50ac66eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletVelocity: 100
+  BulletVelocity: 50
   BulletMesh: {fileID: 1925232721192963309}
 --- !u!114 &6224063462856287838
 MonoBehaviour:
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 1195798822186921202}
   - component: {fileID: 8604150035176240259}
   - component: {fileID: 1925232721192963309}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

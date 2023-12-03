@@ -6,6 +6,7 @@ public class BeetleEnemy : MonoBehaviour, IReactToDamage
 {   
     Material mat;
     HealthComp currentHealth;
+    public bool isBoss = false;
     private void Start()
     {
         currentHealth = GetComponent<HealthComp>();
@@ -16,6 +17,16 @@ public class BeetleEnemy : MonoBehaviour, IReactToDamage
         mat.color = color;
     }
     public void isDead() {
+        if(isBoss)
+        {
+            LevelState.BossEvent = false;
+            LevelState.Spawning =false;
+        }
+        else
+        {
+            SpawnerController.NUM_OF_ENEMIES--;
+        }
         Destroy(gameObject);
     }
+
 }

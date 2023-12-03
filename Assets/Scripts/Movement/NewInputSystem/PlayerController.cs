@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem; // New input system
 
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour
 {
     // multipliers
     [Range(0.01f, 1.0f), Tooltip("How fast to rotate our player to face a direction:\n 1 = instant, 0 = no rotation.")]
@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         leftMouseHeld = context.ReadValue<float>() > 0;
         if (context.canceled)
         {
-            Debug.Log("click canceled");
             if (PlayerGun != null)
             {
                 PlayerGun.EndFireCooldown();
@@ -166,7 +165,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if (PlayerGun != null)
             {
-                Debug.Log("clicked");
                 PlayerGun.FireBullet();
             }
         }
@@ -199,10 +197,5 @@ public class PlayerController : MonoBehaviour, IDamageable
         // move our players position in the direction of movement with respect to time and speed
         characterController.Move(movementDirection * speed * Time.deltaTime);
 
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
     }
 }

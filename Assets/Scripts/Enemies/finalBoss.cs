@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class FinalBoss : MonoBehaviour, IReactToDamage
 {   
@@ -12,15 +10,12 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
     Transform eye;
     Transform otherEye;
     Transform mainEye;
-    public GameObject bombPrefab ; 
-    NavMeshAgent agent;
     public LayerMask player;
     public float raycastDist = 40f;
     public float waitSeconds = 2.5f;
     public GameObject bullet;
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         eye = transform.Find("eye");
         otherEye = transform.Find("otherEye");
         mainEye = transform.Find("mainEye");
@@ -31,14 +26,18 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
 
         }
         currentHealth = GetComponent<HealthComp>();
-        Invoke("finalBossAttack",waitSeconds);
+        Invoke("attackPlayer",waitSeconds);
     }
 
+    void attackPlayer()
+    {
+
+        finalBossAttack(); 
+        Invoke("attackPlayer",waitSeconds);
+    }
     void finalBossAttack()
     {
-        if(didPlayerGetAttacked())
-        {
-            Debug.Log("fired project");
+
             Instantiate(bullet,eye.position , eye.rotation);
             //this is for final boss
             if(otherEye != null && mainEye != null )
@@ -47,26 +46,17 @@ public class FinalBoss : MonoBehaviour, IReactToDamage
                 Instantiate(bullet,mainEye.position , mainEye.rotation);
 
             }
-            if(bombPrefab != null )
-            {
-                Instantiate(bombPrefab,transform.position , transform.rotation);
-            } 
             
-
-        }
-        Invoke("finalBossAttack",waitSeconds);
-
     }
-    bool didPlayerGetAttacked()
-    {
 
-        return Physics.Raycast(transform.position,transform.forward,raycastDist,player);
-    }
     public void isHit() {
         Color color = Color.Lerp(Color.white, Color.red, 1 - currentHealth.CurrentHealthPercent());
         mat.color = color;
     }
     public void isDead() {
+        LevelState.BossEvent = false;
+        LevelState.Spawning =false;
         Destroy(gameObject);
     }
+
 }

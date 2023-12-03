@@ -61,7 +61,6 @@ public class WeaponEquiped : MonoBehaviour
             if (weapon.gunType == GunType.rifle)
             {
 
-                Debug.Log("Shot");
                 // set bullet direction
                 Quaternion bulletRotation = transform.rotation;
                 bulletRotation.eulerAngles = new Vector3(0, bulletRotation.eulerAngles.y, 0); // Set Y rotation to parallel to xz plane

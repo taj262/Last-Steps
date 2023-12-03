@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 4349982119920301363}
   - component: {fileID: 6354488996263268394}
   - component: {fileID: 6492111259427267926}
+  - component: {fileID: 3812912946093037405}
   m_Layer: 8
   m_Name: Final Boss
   m_TagString: Untagged
@@ -199,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 3056581736942837208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.85, y: 10, z: 23.17}
+  m_LocalPosition: {x: -30.1, y: 0.00000011921, z: 31.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -272,7 +273,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -330,7 +331,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!114 &4349982119920301363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cea8a7aabca6a41bf95cc41a0eebcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  health: 0
+  MaxHealth: 75
 --- !u!114 &6354488996263268394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,13 +371,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb67d487be2ae08488cb8fb3c9790f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 1270194103951371847, guid: 0c9b3d33092992342803018508ac6a97, type: 3}
   player:
     serializedVersion: 2
     m_Bits: 8
   raycastDist: 40
-  waitSeconds: 2.5
+  waitSeconds: 4
   bullet: {fileID: 1270194103951371847, guid: dd30cf4282ead5a4cba0c8fd5af4c021, type: 3}
+--- !u!65 &3812912946093037405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056581736942837208}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 2, z: 6.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4703461232383588064
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour, IInteractable
@@ -10,7 +8,8 @@ public class Teleporter : MonoBehaviour, IInteractable
     
     // the displayed gameObject prompt
     public GameObject FloatingText;
-    public GameObject LevelState;
+    public GameObject Boss;
+    public Transform player;
     
     private bool untriggered = true;
 
@@ -30,12 +29,23 @@ public class Teleporter : MonoBehaviour, IInteractable
         RemovePrompt(this.GetComponent<Collider>());
 
         // change level state to boss mode
-        LevelState.GetComponent<LevelState>().BossEvent = true;
+        if(!LevelState.BossEvent)
+        {
+            LevelState.BossEvent = true;
+            Invoke("spawnBoss",3f);
+        }
 
         // return success
         return true;
     }
+    void spawnBoss()
+    {
+        AI_MoveToGoal aiBoss = Boss.GetComponent<AI_MoveToGoal>();
+        aiBoss.goal = player;
+        Instantiate(Boss);
+        Boss.transform.position = transform.position;
 
+    }
 
 
     // show the interact prompt
