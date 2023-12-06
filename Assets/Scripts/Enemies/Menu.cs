@@ -35,10 +35,14 @@ public class Menu : MonoBehaviour
     void resetGame()
     {
         PlayerChange.health = 200;
-        SpawnerController.CAPACITY = 20f;
+        SpawnerController.CAPACITY = 5f;
         sceneBuildIndex = 1;
         LevelState.BossEvent = false;
         LevelState.Spawning = true;
         SpawnerController.NUM_OF_ENEMIES = 0;
+    }
+    public void toControles()
+    {
+        SceneManager.LoadScene("Controls");
     }
 }

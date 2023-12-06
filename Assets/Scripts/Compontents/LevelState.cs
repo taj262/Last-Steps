@@ -18,10 +18,7 @@ public class LevelState : MonoBehaviour
     }
     void Start()
     {
-        if (BossEvent)
-        {
-            Debug.Log("Boss Event has started");
-        }
+
         
     }
 
@@ -31,27 +28,16 @@ public class LevelState : MonoBehaviour
 
 
 
-        // Boss Event is happening
+
         if (BossEvent)
         {
-            // Boss event start
-            if (BossTime == 0)
-            {
-                // up the spawn rate
-                LevelSpawnRate *= 2f;
-            }
-            // start boss timer
-            BossTime += Time.deltaTime;
 
         }
 
 
-        // normal level 
 
-        // as the level begins there are few zombies but as time continues, difficulty increases
         
-        
-        LevelSpawnRate += (SpawnIncreaseRate * Time.deltaTime);
+
         
     }
 

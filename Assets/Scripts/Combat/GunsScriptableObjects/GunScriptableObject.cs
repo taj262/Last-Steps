@@ -6,7 +6,8 @@ public enum GunType
 {
     melee,
     shotgun,
-    rifle
+    rifle,
+    pistol
 }
 
 public enum FireType
@@ -25,6 +26,7 @@ public class GunScripableObject : ScriptableObject
     public FireType fireType;
 
     public float FireRate;
+    public float reloadRate;
 
     public GameObject GunModel;
     public GameObject MuzzleFlashPrefab;

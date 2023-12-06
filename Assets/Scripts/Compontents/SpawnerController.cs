@@ -7,7 +7,7 @@ public class SpawnerController : MonoBehaviour
     public List<Spawner> spawners;
     static public float NUM_OF_ENEMIES = 0;
     public float capactiy = 20f;
-    static public float CAPACITY = 20f;
+    static public float CAPACITY = 5f;
     // Start is called before the first frame update
     void Awake()
     {

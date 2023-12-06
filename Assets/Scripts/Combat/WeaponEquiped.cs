@@ -5,23 +5,67 @@ using UnityEngine;
 public class WeaponEquiped : MonoBehaviour
 {
     public GunScripableObject weapon;
+    public static GunScripableObject uiWeapon;
 
     GameObject weaponModel;
     Transform grip;
-    
-    
+    public static int ammo ;
+    public static int maxAmmo;
+    public static bool reloading;
+    float reloadRate;
+    void Awake()
+    {
+        switchGunType();
+        reloading = false;
+    }
     void Start()
     {
-        // get the position of the grip
+                // get the position of the grip
+        switchGunType();
+
         
         weaponModel = Instantiate(weapon.GunModel, transform);
     }
+    private void FixedUpdate()
+    {
+        if(Input.GetKeyUp(KeyCode.Q))
+        {
+        switch(weapon.gunType)
+        {
 
+            case GunType.shotgun:
+            weapon.gunType = GunType.rifle;
+            break;
+
+            case GunType.rifle:
+            weapon.gunType = GunType.pistol;
+
+            break;
+            case GunType.pistol:
+            weapon.gunType = GunType.shotgun;
+            break;
+
+
+        }
+            switchGunType();
+
+        }
+    }
     public Transform MuzzleTransform;
     bool canFire = true;
 
     public void FireBullet()
     {
+        if(reloading == false && ammo <=0 )
+        {
+            Invoke("reload",reloadRate);
+            reloading = true;
+
+        }
+
+        if(reloading )return;
+
+        
         if (canFire)
         
         
@@ -58,7 +102,7 @@ public class WeaponEquiped : MonoBehaviour
 
 
             // fire rifle
-            if (weapon.gunType == GunType.rifle)
+            if (weapon.gunType == GunType.rifle || weapon.gunType == GunType.pistol)
             {
 
                 // set bullet direction
@@ -91,11 +135,42 @@ public class WeaponEquiped : MonoBehaviour
             }
         }
     }
-    
+    void switchGunType()
+    {
+        
+        switch(weapon.gunType)
+        {
+            case GunType.shotgun:
+            weapon.fireType = FireType.semi;
+            reloadRate = 5f;  
+            maxAmmo = 5;
+            break;
+            case GunType.rifle:
+            weapon.fireType = FireType.auto;
+            reloadRate = 4.5f;
+            maxAmmo = 20;
+            break;
+            case GunType.pistol:
+            weapon.fireType = FireType.semi;
+            reloadRate = 1f;
+            maxAmmo = 12;
+            break;
 
+
+        }
+        uiWeapon = weapon;
+        ammo =  maxAmmo;
+    }
+
+    void reload()
+    {
+        reloading = false;
+        ammo = maxAmmo;
+    }
 
     public void EndFireCooldown()
     {
+        ammo--;
         canFire = true;
     }
 

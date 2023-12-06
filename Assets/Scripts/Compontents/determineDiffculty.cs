@@ -15,17 +15,21 @@ public class determineDiffculty : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(SpawnerController.CAPACITY == 20 )
+        if(SpawnerController.CAPACITY < 20 )
+        {
+            text.SetText("Baby");
+        }
+        else if(SpawnerController.CAPACITY >= 20 && SpawnerController.CAPACITY < 40 )
         {
             text.SetText("Easy");
 
         }
-        else if (  SpawnerController.CAPACITY  == 40 )
+        else if (  SpawnerController.CAPACITY >= 40 && SpawnerController.CAPACITY < 60 )
         {
             text.SetText("Medium");
 
         }
-        else if( SpawnerController.CAPACITY  == 60 )
+        else if( SpawnerController.CAPACITY >= 60 && SpawnerController.CAPACITY < 80 )
         {
             text.SetText("Hard");
         }

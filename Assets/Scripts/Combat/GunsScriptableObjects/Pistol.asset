@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunName: Pistol
   Description: Basic semi-auto Pistol
-  gunType: 2
+  gunType: 3
   fireType: 1
   FireRate: 1
+  reloadRate: 1
   GunModel: {fileID: 6294592427738729199, guid: ad726652be2e64cf7aafef12a16706cf, type: 3}
   MuzzleFlashPrefab: {fileID: 8028544243643281596, guid: c191a05dbd4e99c44a39c18abad80043, type: 3}
   Bullet: {fileID: 1270194103951371847, guid: 3e4268dd519bec74bb91bbcdac0a2f07, type: 3}

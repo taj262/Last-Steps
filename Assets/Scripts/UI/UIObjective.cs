@@ -41,9 +41,11 @@ public class UIObjective : MonoBehaviour
     }
     void countDown()
     {
-        if(seconds == 0 )
+        if(seconds <= 0 )
         {
-            Menu.loadNextScene();
+            text.SetText("Teleporting");
+            Invoke("loadMenu",2f);
+            return;
 
         }
         text.SetText("Survive for "+seconds);
@@ -51,5 +53,9 @@ public class UIObjective : MonoBehaviour
 
         Invoke("countDown",1f);
 
+    }
+    void loadMenu()
+    {
+        Menu.loadNextScene();
     }
 }
