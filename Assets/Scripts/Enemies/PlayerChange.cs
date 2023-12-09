@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerChange : MonoBehaviour, IReactToDamage
 {
-    static public int health = 200;
+    static public float health = 200;
     HealthComp mainHealth;
     void Awake()
     {
+        Time.timeScale = 1;
         mainHealth = GetComponent<HealthComp>();
         mainHealth.health = health;
         Application.targetFrameRate = 60;
     }
     public void isHit()
-    {
+    {       
         health = mainHealth.health;
     }
 

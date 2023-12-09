@@ -20,4 +20,4 @@ MonoBehaviour:
   reloadRate: 6
   GunModel: {fileID: 4893822151811445862, guid: fee7e13595cb3014d95dafcef6b2fbb0, type: 3}
   MuzzleFlashPrefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
-  Bullet: {fileID: 1270194103951371847, guid: 3e4268dd519bec74bb91bbcdac0a2f07, type: 3}
+  Bullet: {fileID: 1270194103951371847, guid: ab88c29ef395610478f7d4aa76b1de08, type: 3}

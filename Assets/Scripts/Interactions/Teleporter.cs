@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class Teleporter : MonoBehaviour, IInteractable
 {
@@ -22,7 +23,6 @@ public class Teleporter : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         // test to see if interacted with
-        Debug.Log("Starting Teleporter");
 
         // remove prompt
         untriggered = false;
@@ -53,7 +53,6 @@ public class Teleporter : MonoBehaviour, IInteractable
     {
         if (other.gameObject.GetComponent<PlayerController>() && untriggered)
         {
-            Debug.Log("inside");
 
             ShowFloatingText();
         }
@@ -95,7 +94,7 @@ public class Teleporter : MonoBehaviour, IInteractable
 
     void ShowFloatingText()
     {
-        Instantiate(FloatingText, transform);
+        Instantiate(FloatingText,transform);
     }
 
 }

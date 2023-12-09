@@ -7,10 +7,12 @@ public class UIObjective : MonoBehaviour
 {
     TMP_Text text;
     bool nextLevel = false;
+    bool startTeleporter = false;
     int seconds = 5;
     // Start is called before the first frame update
     void Start()
     {
+        startTeleporter = false;
         text = GetComponent<TMP_Text>();
     }
 
@@ -32,11 +34,25 @@ public class UIObjective : MonoBehaviour
         }
          if (LevelState.BossEvent)
         {
-            text.SetText("Defeat Boss");
+            Invoke("setTeleporterEvent",3f);
+            if(startTeleporter)
+            {
+                text.SetText("Defeat Boss");
+            }
+            else
+            {
+                text.SetText("Starting Teleporter");
+            }
 
         }
 
 
+
+    }
+    void setTeleporterEvent()
+    {
+        
+        startTeleporter = true;
 
     }
     void countDown()
@@ -44,7 +60,7 @@ public class UIObjective : MonoBehaviour
         if(seconds <= 0 )
         {
             text.SetText("Teleporting");
-            Invoke("loadMenu",2f);
+            Invoke("loadMenu",1f);
             return;
 
         }

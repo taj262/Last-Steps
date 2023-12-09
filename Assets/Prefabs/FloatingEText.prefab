@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2487604174101109459}
   - component: {fileID: 3089627425841642457}
   - component: {fileID: 8675353399210997457}
-  - component: {fileID: 4444791094789453501}
+  - component: {fileID: 8826677558342927500}
   m_Layer: 0
   m_Name: FloatingEText
   m_TagString: FloatingText
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  - {fileID: -6729334364489632744, guid: aeec8c7ff318aa04da0898a136c78491, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: E
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aeec8c7ff318aa04da0898a136c78491, type: 2}
+  m_sharedMaterial: {fileID: -6729334364489632744, guid: aeec8c7ff318aa04da0898a136c78491, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -188,7 +188,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &4444791094789453501
+--- !u!114 &8826677558342927500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

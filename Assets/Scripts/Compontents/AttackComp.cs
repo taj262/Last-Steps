@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public class AttackComp: MonoBehaviour // Has the ability to attack
 {
-    public int damage;
+    public float damage;
     private void OnTriggerEnter(Collider collision)
     {;
         attackObject(collision.gameObject);

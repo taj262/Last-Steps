@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class startUI : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("raiseDiffculty",5f);
+        UIManager.isPaused = true;
+        Invoke("disableStart",2f);
     }
 
     // Update is called once per frame
@@ -15,9 +16,11 @@ public class Game : MonoBehaviour
     {
         
     }
-    void raiseDiffculty()
+    void disableStart()
     {
-        SpawnerController.CAPACITY +=1f % 100f;
-        Invoke("raiseDiffculty",5f);
+        gameObject.SetActive(false);
+        UIManager.isPaused = false;
+
+
     }
 }

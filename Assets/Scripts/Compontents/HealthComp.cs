@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can take dammage
 {
-    public int health;
-    public int MaxHealth;
+    public float health;
+    public float MaxHealth;
     IReactToDamage entity ;
 
     private void Awake()
@@ -14,7 +14,7 @@ public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can 
         entity = GetComponent<IReactToDamage>();
     }
 
-    public void SetHealth(int damage)
+    public void SetHealth(float damage)
     {
         health-=damage;
     }
@@ -25,9 +25,9 @@ public class HealthComp:MonoBehaviour, IHealthInteraction  // Anything that can 
     }
 
     public float CurrentHealthPercent() {
-        return (float)health / (float)MaxHealth;
+        return health / MaxHealth;
     }
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
         SetHealth(damage);
         entity.isHit();
         if(checkIfDead())

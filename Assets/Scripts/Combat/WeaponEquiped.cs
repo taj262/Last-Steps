@@ -28,7 +28,7 @@ public class WeaponEquiped : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Input.GetKeyUp(KeyCode.Q))
+        if(Input.GetKeyUp(KeyCode.Q) && !UIManager.isPaused)
         {
         switch(weapon.gunType)
         {
@@ -50,25 +50,23 @@ public class WeaponEquiped : MonoBehaviour
             switchGunType();
 
         }
+        if((Input.GetKeyDown(KeyCode.R) && ammo < maxAmmo )|| (reloading == false && ammo <=0))
+        {
+            Invoke("reload",reloadRate);
+            reloading = true;
+        }
     }
     public Transform MuzzleTransform;
     bool canFire = true;
 
     public void FireBullet()
     {
-        if(reloading == false && ammo <=0 )
-        {
-            Invoke("reload",reloadRate);
-            reloading = true;
-
-        }
+        if(UIManager.isPaused) canFire = false;
 
         if(reloading )return;
 
         
         if (canFire)
-        
-        
         {
             // fire melee
             if (weapon.gunType == GunType.melee)
@@ -88,11 +86,11 @@ public class WeaponEquiped : MonoBehaviour
                 // spawn shotgun bullets
                 
                 // fire rate will increase the amount of shots the shotgun shoots
-                for (float shot = 0; shot < weapon.FireRate; shot++)
+                for (float shot = 0; shot <= 4f; shot++)
                 {
 
                     // Apply random variation only to the x-axis
-                    float randomY = Random.Range(shot * -10f, shot * 10);
+                    float randomY =  (shot * 10f) - 10f;
                     bulletRotation *= Quaternion.Euler(0f, randomY, 0f);
 
                     Instantiate(weapon.Bullet, weaponModel.transform.position, bulletRotation);
@@ -108,8 +106,8 @@ public class WeaponEquiped : MonoBehaviour
                 // set bullet direction
                 Quaternion bulletRotation = transform.rotation;
                 bulletRotation.eulerAngles = new Vector3(0, bulletRotation.eulerAngles.y, 0); // Set Y rotation to parallel to xz plane
-
                 // spawn bullet
+        
                 Instantiate(weapon.Bullet, transform.position, bulletRotation);
 
                 // spawn muzzel flash
@@ -142,8 +140,8 @@ public class WeaponEquiped : MonoBehaviour
         {
             case GunType.shotgun:
             weapon.fireType = FireType.semi;
-            reloadRate = 5f;  
-            maxAmmo = 5;
+            reloadRate = 3f;  
+            maxAmmo = 2;
             break;
             case GunType.rifle:
             weapon.fireType = FireType.auto;
@@ -170,6 +168,7 @@ public class WeaponEquiped : MonoBehaviour
 
     public void EndFireCooldown()
     {
+        if(UIManager.isPaused)return;
         ammo--;
         canFire = true;
     }
