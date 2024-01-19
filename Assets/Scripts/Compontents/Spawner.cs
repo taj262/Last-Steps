@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
     public void delaySpawn()
     {
         float randInterval = Random.Range(3,seconds);
+        if(startUI.isLoading) randInterval = 3f;
         Invoke("spawnEnemy",randInterval);
     }
     public void spawnEnemy()

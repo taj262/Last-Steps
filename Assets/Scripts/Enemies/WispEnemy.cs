@@ -32,9 +32,9 @@ public class WispEnemy : MonoBehaviour, IReactToDamage
     void wispAttack()
     {
 
-            Instantiate(bullet,eye.position , eye.rotation);
+        Instantiate(bullet,eye.position , eye.rotation);
             
-
+        waitSeconds = Random.Range(3f,8f);
     
         Invoke("wispAttack",waitSeconds);
 

@@ -959,9 +959,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD to move
 
-    Right Click to aim
-
-    Left Click to shoot
+    Left Click to aim and shoot
 
 
 '

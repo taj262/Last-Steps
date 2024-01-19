@@ -11,6 +11,7 @@ public class Teleporter : MonoBehaviour, IInteractable
     public GameObject FloatingText;
     public GameObject Boss;
     public Transform player;
+    public Transform teleporter;
     
     private bool untriggered = true;
 
@@ -26,7 +27,7 @@ public class Teleporter : MonoBehaviour, IInteractable
 
         // remove prompt
         untriggered = false;
-        RemovePrompt(this.GetComponent<Collider>());
+        RemovePrompt();
 
         // change level state to boss mode
         if(!LevelState.BossEvent)
@@ -43,7 +44,7 @@ public class Teleporter : MonoBehaviour, IInteractable
         AI_MoveToGoal aiBoss = Boss.GetComponent<AI_MoveToGoal>();
         aiBoss.goal = player;
         Instantiate(Boss);
-        Boss.transform.position = transform.position;
+        Boss.transform.position = teleporter.position;
 
     }
 
@@ -62,16 +63,17 @@ public class Teleporter : MonoBehaviour, IInteractable
     // remove the prompt when leaving
     private void OnTriggerExit(Collider other)
     {
-        RemovePrompt(other);
-    }
-
-    void RemovePrompt(Collider other)
-    {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            GameObject child = FindChildWithTag(this.gameObject, "FloatingText");
-            Destroy(child);
+            RemovePrompt();
         }
+    }
+
+    void RemovePrompt()
+    {
+        GameObject child = FindChildWithTag(this.gameObject, "FloatingText");
+        Destroy(child);
+        
     }
 
     GameObject FindChildWithTag(GameObject parent, string tag)

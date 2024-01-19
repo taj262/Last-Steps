@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeetleEnemy : MonoBehaviour
-{   
+public class ReactComp : MonoBehaviour, IReactToDamage
+{
     Material mat;
     HealthComp currentHealth;
     public bool isBoss = false;
@@ -28,5 +28,4 @@ public class BeetleEnemy : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
 }

@@ -61,7 +61,7 @@ public class WeaponEquiped : MonoBehaviour
 
     public void FireBullet()
     {
-        if(UIManager.isPaused) canFire = false;
+        if(UIManager.isPaused || startUI.isLoading ) canFire = false;
 
         if(reloading )return;
 
@@ -168,7 +168,7 @@ public class WeaponEquiped : MonoBehaviour
 
     public void EndFireCooldown()
     {
-        if(UIManager.isPaused)return;
+        if(UIManager.isPaused || startUI.isLoading)return;
         ammo--;
         canFire = true;
     }

@@ -78,28 +78,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rightMouseHeld)
+        
+   
+        // shoot a raycast
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(mouseLook);
+
+        // if that raycast hit somehting
+        if (Physics.Raycast(ray, out hit))
         {
-            // shoot a raycast
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(mouseLook);
-
-            // if that raycast hit somehting
-            if (Physics.Raycast(ray, out hit))
-            {
-                // record that point
-                rotationTarget = hit.point;
-            }
-
-            // move player and aim independantly
-            MovePlayerWithAim();
-
+            // record that point
+            rotationTarget = hit.point;
         }
-        else
-        {
-            // move normaly
-            MovePlayer();
-        }
+        MovePlayerWithAim();
+
 
         // Determine movement direction based on input
         Vector3 movementDirection = new Vector3(move.x, 0f, move.y);
@@ -161,13 +153,12 @@ public class PlayerController : MonoBehaviour
         MovementHelper(movementDirection, lookDirection, lookPos, 1);
 
         // shoot if left mouse held
-        if (leftMouseHeld)
+
+        if (PlayerGun != null && leftMouseHeld)
         {
-            if (PlayerGun != null)
-            {
-                PlayerGun.FireBullet();
-            }
+            PlayerGun.FireBullet();
         }
+        
         
     }
 
